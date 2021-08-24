@@ -1,5 +1,5 @@
 <h1>All Boba Shops</h1>
 
-<% @boba_shops.each do |boba_shops| %>
-  <h3><%= boba_shops %></h3>
-<%end%>
+<% @boba_shops.each do |boba_shop| %>
+  <h3><a href='/boba_shops/<%= boba_shop.id %>'><%= boba_shop.name %></a></h3>
+<% end %>
