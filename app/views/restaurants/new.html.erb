@@ -1,0 +1,14 @@
+<form action="/restaurants" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new restaurant name:</p>
+  <input type='text' name='restaurant[name]'/><br/>
+  <!-- <p>Enter a date created:</p> -->
+  <input type="hidden" type='datetime-local' name='restaurant[created_at]'/><br/>
+  <!-- <p>Enter a date updated:</p> -->
+  <input type="hidden" type='datetime-local' name='restaurant[updated_at]'/><br/>
+  <p>Check if delivery available:</p>
+  <input type='radio' name='restaurant[delivery]' value=true /><br/>
+  <p>Enter number of Michelin stars:</p>
+  <input type='number' name='restaurant[michelin_stars]' min=0 max=3 /><br/>
+  <input type='submit'/>
+</form>
