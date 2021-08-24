@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get '/restaurants', to: 'restaurants#index'
   get '/boba_shops', to: 'boba_shops#index'
   get '/restaurants/new', to: 'restaurants#new'
+  get '/boba_shops', to: 'boba_shops#new'
   post '/restaurants', to: 'restaurants#create'
 end
