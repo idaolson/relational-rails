@@ -1,6 +1,6 @@
 class BobaShopsController < ApplicationController
   def index
-    @boba_shops = ['Shop 1', 'Shop 2', 'Shop 3']
+    @boba_shops = BobaShop.all
   end
 
   def new
@@ -17,5 +17,9 @@ class BobaShopsController < ApplicationController
     })
     boba_shop.save
     redirect_to '/boba_shops'
+  end
+
+  def show
+    @boba_shop = BobaShop.find(params[:id])
   end
 end
