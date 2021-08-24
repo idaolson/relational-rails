@@ -4,7 +4,7 @@ class CreateBobaShop < ActiveRecord::Migration[5.2]
       t.datetime :created_at
       t.datetime :updated_at
       t.string :name
-      t.boolean :delivery
+      t.boolean :drive_thru
       t.integer :capacity
     end
   end
