@@ -26,4 +26,18 @@ class BobaShopsController < ApplicationController
   def edit
     @boba_shop = BobaShop.find(params[:id])
   end
+
+  def update
+    boba_shop = BobaShop.find(params[:id])
+    binding.pry
+    boba_shop.update({
+      created_at: params[:boba_shop][:created_at],
+      updated_at: params[:boba_shop][:updated_at],
+      name: params[:boba_shop][:name],
+      drive_thru: params[:boba_shop][:drive_thru],
+      capacity: params[:boba_shop][:capacity]
+    })
+    boba_shop.save
+    redirect_to "/boba_shops/#{boba_shop.id}"
+  end
 end
