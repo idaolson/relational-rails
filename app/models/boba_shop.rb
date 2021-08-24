@@ -1,0 +1,3 @@
+class BobaShop < ApplicationRecord
+
+end
