@@ -1,9 +1,9 @@
-<form action="/boba_shops" method="post">
+<form action="/boba_shops/<%= @boba_shop.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="PATCH">
   <h1>Edit</h1>
   <p>Enter a new boba shop name:</p>
-  <input type='text' name='boba_shop[name]'>
+  <input type='text' name='boba_shop[name]' value='<%= @boba_shop.name %>'>
   <input type="hidden" type='datetime-local' name='boba_shop[created_at]' value='<%= @boba_shop.created_at %>'><br>
   <input type="hidden" type='datetime-local' name='boba_shop[updated_at]'><br>
   <p>Drive-thru?</p>
