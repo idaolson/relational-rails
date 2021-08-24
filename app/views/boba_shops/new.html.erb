@@ -1,7 +1,7 @@
 <form action="/boba_shops" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p>Enter a new boba shop name:</p>
-  <input type='text' name='boba_shop[name]'><br/>
+  <input type='text' name='boba_shop[name]'><br>
   <input type="hidden" type='datetime-local' name='boba_shop[created_at]'><br>
   <input type="hidden" type='datetime-local' name='boba_shop[updated_at]'><br>
   <p>Drive-thru?</p>
@@ -11,5 +11,5 @@
   <label for='false'>No</label>
   <p>Capacity:</p>
   <input type='number' name='boba_shop[capacity]' min='10' max='30'><br>
-  <input type='submit'/>
+  <input type='submit'>
 </form>
