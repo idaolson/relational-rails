@@ -22,4 +22,8 @@ class BobaShopsController < ApplicationController
   def show
     @boba_shop = BobaShop.find(params[:id])
   end
+
+  def edit
+    @boba_shop = BobaShop.find(params[:id])
+  end
 end
