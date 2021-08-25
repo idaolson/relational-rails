@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   patch '/boba_shops/:id', to: 'boba_shops#update'
   post '/restaurants', to: 'restaurants#create'
   post '/boba_shops', to: 'boba_shops#create'
+  get '/restaurants/:id', to: "restaurants#show"
+  get '/restaurants/:id/edit', to: 'restaurants#edit'
+  patch '/restaurants/:id', to: 'restaurants#update'
 end

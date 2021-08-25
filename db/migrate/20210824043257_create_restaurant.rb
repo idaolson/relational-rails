@@ -6,6 +6,8 @@ class CreateRestaurant < ActiveRecord::Migration[5.2]
       t.string :name
       t.boolean :delivery
       t.integer :michelin_stars
+
+      t.timestamp
     end
   end
 end
