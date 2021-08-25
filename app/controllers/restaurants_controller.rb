@@ -10,8 +10,6 @@ class RestaurantsController < ApplicationController
 
   def create
     restaurant = Restaurant.new({
-      created_at: date_time,
-      updated_at: date_time,
       name: params[:restaurant][:name],
       delivery: params[:restaurant][:delivery],
       michelin_stars: params[:restaurant][:michelin_stars],
@@ -33,7 +31,6 @@ class RestaurantsController < ApplicationController
     restaurant = Restaurant.find(params[:id])
 
     restaurant.update({
-      updated_at: date_time,
       name: params[:restaurant][:name],
       delivery: params[:restaurant][:delivery],
       michelin_stars: params[:restaurant][:michelin_stars],
@@ -41,9 +38,5 @@ class RestaurantsController < ApplicationController
 
     restaurant.save
     redirect_to "/restaurants/#{restaurant.id}"
-  end
-
-  def date_time
-    DateTime.now.strftime("%d/%m/%Y %H:%M")
   end
 end
