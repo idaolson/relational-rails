@@ -1,0 +1,11 @@
+<form action="/restaurants/<%= @restaurant.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+  <input type='text' name='restaurant[name]'/><br/>
+  <p>Check if delivery available:</p>
+  <input type='radio' name='restaurant[delivery]' value=true /><br/>
+  <p>Enter number of Michelin stars:</p>
+  <input type='number' name='restaurant[michelin_stars]' min=0 max=3 /><br/>
+  <input type='submit'/>
+</form>
