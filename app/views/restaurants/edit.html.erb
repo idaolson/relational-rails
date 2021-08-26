@@ -4,8 +4,11 @@
   <p>Edit</p>
   <input type='text' name='restaurant[name]'/><br/>
   <p>Check if delivery available:</p>
-  <input type='radio' name='restaurant[delivery]' value=true /><br/>
+  <input type='radio' id='true' name='restaurant[delivery]' value='true'>
+  <label for='true'>Yes</label>
+  <input type='radio' id='false' name='restaurant[delivery]' value='false'>
+  <label for='false'>No</label>
   <p>Enter number of Michelin stars:</p>
-  <input type='number' name='restaurant[michelin_stars]' min=0 max=3 /><br/>
+  <input type='number' name='restaurant[michelin_stars]' min=0 max=3 /><br/><br/>
   <input type='submit'/>
 </form>
