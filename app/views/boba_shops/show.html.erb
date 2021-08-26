@@ -1,0 +1,10 @@
+<a href="/boba_shops">Boba Shops Index</a>
+
+<h1><%= @boba_shop.name %></h1>
+<a href="/boba_shops/<%= @boba_shop.id %>/drinks">View Drinks</a>
+
+<p>ID: <%= @boba_shop.id %></p>
+<p>Created at: <%= @boba_shop.created_at %></p>
+<p>Updated at: <%= @boba_shop.updated_at %></p>
+<p>Has drive-thru?: <%= @boba_shop.drive_thru %></p>
+<p>Maximum capacity: <%= @boba_shop.capacity %></p>

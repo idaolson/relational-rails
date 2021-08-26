@@ -1,0 +1,17 @@
+<form action="/boba_shops/<%= @boba_shop.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH">
+  <h1>Edit</h1>
+  <p>Enter a new boba shop name:</p>
+  <input type='text' name='boba_shop[name]' value='<%= @boba_shop.name %>'>
+  <input type="hidden" type='datetime-local' name='boba_shop[created_at]' value='<%= @boba_shop.created_at %>'><br>
+  <input type="hidden" type='datetime-local' name='boba_shop[updated_at]'><br>
+  <p>Drive-thru?</p>
+  <input type='radio' id='true' name='boba_shop[drive_thru]' value='true'>
+  <label for='true'>Yes</label>
+  <input type='radio' id='false' name='boba_shop[drive_thru]' value='false'>
+  <label for='false'>No</label>
+  <p>Capacity:</p>
+  <input type='number' name='boba_shop[capacity]' value='<%= @boba_shop.capacity %>' min='10' max='30'><br>
+  <input type='submit'>
+</form>
