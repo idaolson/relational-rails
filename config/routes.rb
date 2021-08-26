@@ -14,10 +14,12 @@ Rails.application.routes.draw do
 
   # boba shops
   get '/boba_shops', to: 'boba_shops#index'
+  get '/boba_shops/new', to: 'boba_shops#new'
   get '/boba_shops/:id', to: 'boba_shops#show'
-  get '/boba_shops/:id/drinks', to: 'drinks#drinks_by_shop'
+  post '/boba_shops', to: 'boba_shops#create'
 
   # drinks
   get '/drinks', to: 'drinks#index'
+  get '/boba_shops/:id/drinks', to: 'drinks_by_shop#index'
   get '/drinks/:id', to: 'drinks#show'
 end

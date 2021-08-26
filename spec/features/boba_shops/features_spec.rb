@@ -1,53 +1,53 @@
 require 'rails_helper'
-require 'date'
+# require 'date'
 
 describe 'boba shops' do
   before(:each) do
-    @time = DateTime.now
+    # @time = DateTime.now
     @store_1 = BobaShop.create!(
-      id: 1,
-      created_at: @time.strftime('%d%m%y %H:%M:%S'),
-      updated_at: @time.strftime('%d%m%y %H:%M:%S'),
+      # id: 1,
+      # created_at: @time.strftime('%d%m%y %H:%M:%S'),
+      # updated_at: @time.strftime('%d%m%y %H:%M:%S'),
       name: 'Sharetea',
       drive_thru: false,
       capacity: 25
     )
     @store_2 = BobaShop.create!(
-      id: 2,
-      created_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
-      updated_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
+      # id: 2,
+      # created_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
+      # updated_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
       name: 'Cha4Tea',
       drive_thru: false,
       capacity: 25
     )
     @drink_1 = @store_1.drinks.create!(
-      id: 1,
-      created_at: @time.strftime('%d%m%y %H:%M:%S'),
-      updated_at: @time.strftime('%d%m%y %H:%M:%S'),
+      # id: 1,
+      # created_at: @time.strftime('%d%m%y %H:%M:%S'),
+      # updated_at: @time.strftime('%d%m%y %H:%M:%S'),
       name: 'Okinawan Milk Tea',
       in_stock: true,
       price: 6.99
     )
     @drink_2 = @store_1.drinks.create!(
-      id: 2,
-      created_at: @time.strftime('%d%m%y %H:%M:%S'),
-      updated_at: @time.strftime('%d%m%y %H:%M:%S'),
+      # id: 2,
+      # created_at: @time.strftime('%d%m%y %H:%M:%S'),
+      # updated_at: @time.strftime('%d%m%y %H:%M:%S'),
       name: 'Hazelnut Milk Tea',
       in_stock: true,
       price: 6.99
     )
     @drink_3 = @store_2.drinks.create!(
-      id: 3,
-      created_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
-      updated_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
+      # id: 3,
+      # created_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
+      # updated_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
       name: 'Honey Milk Tea',
       in_stock: true,
       price: 6.99
     )
     @drink_4 = @store_2.drinks.create!(
-      id: 4,
-      created_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
-      updated_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
+      # id: 4,
+      # created_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
+      # updated_at: (@time + 1.hour).strftime('%d%m%y %H:%M:%S'),
       name: 'Taro Milk Tea',
       in_stock: true,
       price: 6.99
@@ -115,7 +115,7 @@ describe 'boba shops' do
   it 'can sort by the most recently created' do
     visit "/boba_shops"
 
-    expect(page).to have_css('#boba_shop-2~#boba_shop-1')
+    expect(page).to have_css("#boba_shop-#{@store_2.id}~#boba_shop-#{@store_1.id}")
   end
 
   it 'can count number of drinks associated with the boba shop' do
@@ -181,5 +181,22 @@ describe 'boba shops' do
     click_on "View Drinks"
 
     expect(page).to have_current_path("/boba_shops/#{@store_1.id}/drinks")
+  end
+
+  it 'has a link to create a new boba shop' do
+    visit "/boba_shops"
+
+    page.has_xpath?("/boba_shops/new")
+
+    click_on "New Boba Shop"
+
+    expect(page).to have_current_path("/boba_shops/new")
+
+    fill_in 'name', with: 'Tea Station'
+    choose 'has_drive_thru'
+    fill_in 'capacity', with: '30'
+    click_on "Create Boba Shop"
+
+    expect(page).to have_current_path("/boba_shops")
   end
 end

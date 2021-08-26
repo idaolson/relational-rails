@@ -1,0 +1,20 @@
+<a href="/">Home</a>
+<a href="/boba_shops">Boba Shops Index</a>
+<a href="/drinks">Drinks Index</a>
+<a href='/restaurants'>Restaurants Index</a>
+<a href='/pastas'>Pastas Index</a>
+
+<br><br>
+<form action="/boba_shops" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="name">New shop name:</label><br>
+  <input type="text" id="name" name="boba_shop[name]"><br><br>
+  <label for="drive_thru">Drive thru available?:</label><br>
+  <input type="radio" id="has_drive_thru" name="boba_shop[drive_thru]" value="true">
+  <label for="has_drive_thru">Yes</label>
+  <input type="radio" id="no_drive_thru" name="boba_shop[drive_thru]" value="false">
+  <label for="no_drive_thru">No</label><br><br>
+  <label for="capacity">Capacity (between 10 and 50):</label><br>
+  <input type="number" id="capacity" name="boba_shop[capacity]" min="10" max="50"><br><br>
+  <input type="submit" value="Create Boba Shop">
+</form>
