@@ -9,6 +9,6 @@ class DrinksController < ApplicationController
 
   def drinks_by_shop
     @boba_shop = BobaShop.find(params[:id])
-    @drinks = Drink.where(boba_shop_id: params[:id])
+    @drinks = Drink.drink_by_shop(params[:id])
   end
 end

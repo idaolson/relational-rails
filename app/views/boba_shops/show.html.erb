@@ -1,4 +1,8 @@
+<a href="/">Home</a>
 <a href="/boba_shops">Boba Shops Index</a>
+<a href="/drinks">Drinks Index</a>
+<a href='/restaurants'>Restaurants Index</a>
+<a href='/pastas'>Pastas Index</a>
 
 <h1><%= @boba_shop.name %></h1>
 <a href="/boba_shops/<%= @boba_shop.id %>/drinks">View Drinks</a>
@@ -8,3 +12,4 @@
 <p>Updated at: <%= @boba_shop.updated_at %></p>
 <p>Has drive-thru?: <%= @boba_shop.drive_thru %></p>
 <p>Maximum capacity: <%= @boba_shop.capacity %></p>
+<p>Drinks count: <%= @boba_shop.drinks_count %></p>
