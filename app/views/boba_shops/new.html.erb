@@ -1,20 +1,20 @@
-<a href="/">Home</a>
-<a href="/boba_shops">Boba Shops Index</a>
-<a href="/drinks">Drinks Index</a>
-<a href='/restaurants'>Restaurants Index</a>
-<a href='/pastas'>Pastas Index</a>
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
 
-<br><br>
-<form action="/boba_shops" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label for="name">New shop name:</label><br>
-  <input type="text" id="name" name="boba_shop[name]"><br><br>
-  <label for="drive_thru">Drive thru available?:</label><br>
-  <input type="radio" id="has_drive_thru" name="boba_shop[drive_thru]" value="true">
-  <label for="has_drive_thru">Yes</label>
-  <input type="radio" id="no_drive_thru" name="boba_shop[drive_thru]" value="false">
-  <label for="no_drive_thru">No</label><br><br>
-  <label for="capacity">Capacity (between 10 and 50):</label><br>
-  <input type="number" id="capacity" name="boba_shop[capacity]" min="10" max="50"><br><br>
-  <input type="submit" value="Create Boba Shop">
-</form>
+<br>
+<h1>New Boba Shop</h1>
+<%= form_with url: "/boba_shops", method: :post, local: true do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %><br><br>
+  <%= form.label :drive_thru, "Drive Thru?" %><br>
+  <%= form.radio_button :drive_thru_true, true %>
+  <%= form.label :true, "Yes" %>
+  <%= form.radio_button :drive_thru_false, false %>
+  <%= form.label :false, "No" %><br><br>
+  <%= form.label :capacity %><br>
+  <%= form.number_field :capacity, in: 10..50 %><br><br>
+  <%= form.submit "Create New Boba Shop" %>
+<% end %>

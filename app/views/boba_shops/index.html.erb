@@ -1,14 +1,12 @@
-<a href="/">Home</a>
-<a href="/boba_shops">Boba Shops Index</a>
-<a href="/drinks">Drinks Index</a>
-<a href='/restaurants'>Restaurants Index</a>
-<a href='/pastas'>Pastas Index</a>
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
 
 <h1>All Boba Shops</h1>
-<p><a href="/boba_shops/new">New Boba Shop</a></p>
+<%= link_to "New Boba Shop", "/boba_shops/new" %><br><br>
 
 <% @boba_shops.each do |boba_shop| %>
-  <section id='boba_shop-<%= boba_shop.id %>'>
-    <h3><a href='/boba_shops/<%= boba_shop.id %>'><%= boba_shop.name %></a> created at <%= boba_shop.created_at %></h3>
-  </section>
+  <%= link_to boba_shop.name, "/boba_shops/#{boba_shop.id}" %> created at <%= boba_shop.created_at %><br>
 <% end %>

@@ -1,15 +1,17 @@
-<a href="/">Home</a>
-<a href="/boba_shops">Boba Shops Index</a>
-<a href="/drinks">Drinks Index</a>
-<a href='/restaurants'>Restaurants Index</a>
-<a href='/pastas'>Pastas Index</a>
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
 
 <h1><%= @boba_shop.name %></h1>
-<a href="/boba_shops/<%= @boba_shop.id %>/drinks">View Drinks</a>
+<%= link_to "Update #{@boba_shop.name}", "/boba_shops/#{@boba_shop.id}/edit" %><br><br>
 
-<p>ID: <%= @boba_shop.id %></p>
-<p>Created at: <%= @boba_shop.created_at %></p>
-<p>Updated at: <%= @boba_shop.updated_at %></p>
-<p>Has drive-thru?: <%= @boba_shop.drive_thru %></p>
-<p>Maximum capacity: <%= @boba_shop.capacity %></p>
-<p>Drinks count: <%= @boba_shop.drinks_count %></p>
+ID: <%= @boba_shop.id %><br>
+Created at: <%= @boba_shop.created_at %><br>
+Updated at: <%= @boba_shop.updated_at %><br>
+Has drive-thru?: <%= @boba_shop.drive_thru %><br>
+Maximum capacity: <%= @boba_shop.capacity %><br>
+Drinks count: <%= @boba_shop.drinks_count %><br><br>
+<%= link_to "View Drinks", "/boba_shops/#{@boba_shop.id}/drinks" %><br>
+

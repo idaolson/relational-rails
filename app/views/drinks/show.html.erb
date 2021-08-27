@@ -1,14 +1,14 @@
-<a href="/">Home</a>
-<a href="/boba_shops">Boba Shops Index</a>
-<a href="/drinks">Drinks Index</a>
-<a href='/restaurants'>Restaurants Index</a>
-<a href='/pastas'>Pastas Index</a>
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
 
 <h1><%= @drink.name %></h1>
-
-<p>Drink ID: <%= @drink.id %></p>
-<p>Store ID: <%= @drink.boba_shop_id %></p>
-<p>Created at: <%= @drink.created_at %></p>
-<p>Updated at: <%= @drink.updated_at %></p>
-<p>In stock?: <%= @drink.in_stock %></p>
-<p>price: <%= @drink.price %></p>
+<%= link_to  "Update #{@drink.name}", "/drinks/#{@drink.id}/edit"%><br><br>
+Drink ID: <%= @drink.id %><br>
+Store ID: <%= @drink.boba_shop_id %><br>
+Created at: <%= @drink.created_at %><br>
+Updated at: <%= @drink.updated_at %><br>
+In stock?: <%= @drink.in_stock %><br>
+price: <%= @drink.price %>
