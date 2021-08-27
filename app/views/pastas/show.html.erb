@@ -1,0 +1,11 @@
+<a href="/pastas">Pasta Index</a>
+
+<h1><%= @pasta.name %></h1>
+
+<p> Pasta ID: <%= @pasta.id %></p>
+<p> Created at: <%= @pasta.created_at %></p>
+<p> Updated at: <%= @pasta.updated_at %></p>
+<p> Vegan: <%= @pasta.is_vegan %></p>
+<p> Price: <%= @pasta.price %></p>
+
+<a href="/pastas/<%= @pasta.id %>/edit">Edit</a>

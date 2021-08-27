@@ -2,9 +2,11 @@
 
 <h1><%= @restaurant.name %></h1>
 
+<p> Restaurant ID: <%= @restaurant.id %></p>
 <p> Created at: <%= @restaurant.created_at %></p>
 <p> Updated at: <%= @restaurant.updated_at %></p>
 <p> Delivery available: <%= @restaurant.delivery %></p>
 <p> Number of Michelin Stars: <%= @restaurant.michelin_stars %></p>
 
-<a href="/restaurants/<%= @restaurant.id %>/edit">Edit</a>
+<a href="/restaurants/<%= @restaurant.id %>/edit">Edit</a><br/>
+<%= link_to "Add pasta to menu", "/restaurants/#{@restaurant.id}/pastas/new" %>
