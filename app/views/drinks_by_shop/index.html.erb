@@ -4,10 +4,11 @@
 <%= link_to "Restaurants", "/restaurants"%>
 <%= link_to "Pastas", "/pastas"%>
 
-<h1>All Drinks</h1>
+<h1><%= @boba_shop.name %>'s drinks</h1>
+<%= link_to "Create Drink", "/boba_shops/#{@boba_shop.id}/drinks/new" %>
 
 <% @drinks.each do |drink| %>
-  <h3><%= link_to drink.name, "/drinks/#{drink.id}" %></h3>
+  <h3><%= drink.name %></h3>
   Drink ID: <%= drink.id %><br>
   Store ID: <%= drink.boba_shop_id %><br>
   Created at: <%= drink.created_at %><br>

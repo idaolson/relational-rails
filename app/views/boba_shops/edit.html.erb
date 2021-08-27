@@ -1,17 +1,20 @@
-<form action="/boba_shops/<%= @boba_shop.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH">
-  <h1>Edit</h1>
-  <p>Enter a new boba shop name:</p>
-  <input type='text' name='boba_shop[name]' value='<%= @boba_shop.name %>'>
-  <input type="hidden" type='datetime-local' name='boba_shop[created_at]' value='<%= @boba_shop.created_at %>'><br>
-  <input type="hidden" type='datetime-local' name='boba_shop[updated_at]'><br>
-  <p>Drive-thru?</p>
-  <input type='radio' id='true' name='boba_shop[drive_thru]' value='true'>
-  <label for='true'>Yes</label>
-  <input type='radio' id='false' name='boba_shop[drive_thru]' value='false'>
-  <label for='false'>No</label>
-  <p>Capacity:</p>
-  <input type='number' name='boba_shop[capacity]' value='<%= @boba_shop.capacity %>' min='10' max='30'><br>
-  <input type='submit'>
-</form>
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
+
+<br>
+<h1>Edit <%= "#{@boba_shop.name}" %></h1>
+<%= form_with url: "/boba_shops/#{@boba_shop.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name, value: "#{@boba_shop.name}" %><br><br>
+  <%= form.label :drive_thru, "Drive Thru?" %><br>
+  <%= form.radio_button :drive_thru, true, checked: @boba_shop.drive_thru == true %>
+  <%= form.label :true, "Yes" %>
+  <%= form.radio_button :drive_thru, false, checked: @boba_shop.drive_thru == false %>
+  <%= form.label :false, "No" %><br><br>
+  <%= form.label :capacity %><br>
+  <%= form.number_field :capacity, in: 10..50, value: "#{@boba_shop.capacity}" %><br><br>
+  <%= form.submit "Update #{@boba_shop.name}" %>
+<% end %>

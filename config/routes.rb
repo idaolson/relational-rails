@@ -21,10 +21,18 @@ Rails.application.routes.draw do
 
   # boba shops
   get '/boba_shops', to: 'boba_shops#index'
+  get '/boba_shops/new', to: 'boba_shops#new'
   get '/boba_shops/:id', to: 'boba_shops#show'
-  get '/boba_shops/:id/drinks', to: 'drinks#drinks_by_shop'
+  get '/boba_shops/:id/edit', to: 'boba_shops#edit'
+  post '/boba_shops', to: 'boba_shops#create'
+  patch '/boba_shops/:id', to: 'boba_shops#update'
 
   # drinks
   get '/drinks', to: 'drinks#index'
   get '/drinks/:id', to: 'drinks#show'
+  get '/boba_shops/:id/drinks', to: 'drinks_by_shop#index'
+  get '/boba_shops/:id/drinks/new', to: 'drinks_by_shop#new'
+  get '/drinks/:id/edit', to: 'drinks#edit'
+  post '/boba_shops/:id/drinks', to: 'drinks_by_shop#create'
+  patch '/drinks/:id', to: 'drinks#update'
 end
