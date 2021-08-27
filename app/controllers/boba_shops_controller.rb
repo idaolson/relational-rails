@@ -13,11 +13,26 @@ class BobaShopsController < ApplicationController
 
   def create
     boba_shop = BobaShop.new({
-      name: params[:boba_shop][:name],
-      drive_thru: params[:boba_shop][:drive_thru],
-      capacity: params[:boba_shop][:capacity]
+      name: params[:name],
+      drive_thru: params[:drive_thru],
+      capacity: params[:capacity]
     })
     boba_shop.save
     redirect_to '/boba_shops'
+  end
+
+  def edit
+    @boba_shop = BobaShop.find(params[:id])
+  end
+
+  def update
+    boba_shop = BobaShop.find(params[:id])
+    boba_shop.update({
+      name: params[:name],
+      drive_thru: params[:drive_thru],
+      capacity: params[:capacity]
+    })
+    boba_shop.save
+    redirect_to "/boba_shops/#{boba_shop.id}"
   end
 end
