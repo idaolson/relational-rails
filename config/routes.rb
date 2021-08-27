@@ -12,7 +12,12 @@ Rails.application.routes.draw do
 
   # pastas
   get '/pastas', to: 'pastas#index'
+  get '/restaurants/:id/pastas/new', to: 'pastas#new'
+  post '/pastas', to: 'pastas#create'
+  get '/pastas/:id', to: "pastas#show"
 
+  # restaurant pastas
+  get '/restaurants/:id/pastas', to: 'restaurant_pastas#index'
 
   # boba shops
   get '/boba_shops', to: 'boba_shops#index'
