@@ -4,15 +4,17 @@
 <%= link_to "Restaurants", "/restaurants"%>
 <%= link_to "Pastas", "/pastas"%>
 
-<h1><%= @boba_shop.name %>'s drinks</h1>
+<h1><%= @boba_shop.name %>'s Drinks</h1>
 <%= link_to "Create Drink", "/boba_shops/#{@boba_shop.id}/drinks/new" %>
+<%= link_to "Sort", "/boba_shops/#{@boba_shop.id}/drinks?sort=true" %>
 
 <% @drinks.each do |drink| %>
   <h3><%= drink.name %></h3>
+  <%= link_to "Update #{drink.name}", "/drinks/#{drink.id}/edit" %><br><br>
   Drink ID: <%= drink.id %><br>
   Store ID: <%= drink.boba_shop_id %><br>
   Created at: <%= drink.created_at %><br>
   Updated at: <%= drink.updated_at %><br>
   In stock?: <%= drink.in_stock %><br>
-  price: <%= drink.price %>
+  Price: <%= drink.price %>
 <% end %>

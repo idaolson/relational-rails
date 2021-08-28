@@ -48,5 +48,15 @@ describe BobaShop do
     it 'can count the number of drinks' do
       expect(@store_1.drinks_count).to eq(2)
     end
+
+    it 'can sort drinks alphabetically' do
+      drinks = Drink.all
+      expected = [
+        @drink_2,
+        @drink_1
+      ]
+      sort = true
+      expect(@store_1.sorted_drinks(sort)).to eq(expected)
+    end
   end
 end

@@ -8,4 +8,12 @@ class BobaShop < ApplicationRecord
   def drinks_count
     drinks.count
   end
+
+  def sort_drinks(sort = false)
+    if sort
+      drinks.order(:name)
+    else
+      drinks
+    end
+  end
 end
