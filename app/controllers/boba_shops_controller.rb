@@ -4,7 +4,7 @@ class BobaShopsController < ApplicationController
   end
 
   def show
-    @boba_shop = BobaShop.find(params[:id])
+    @boba_shop = BobaShop.find(params[:shop_id])
   end
 
   def new
@@ -22,11 +22,11 @@ class BobaShopsController < ApplicationController
   end
 
   def edit
-    @boba_shop = BobaShop.find(params[:id])
+    @boba_shop = BobaShop.find(params[:shop_id])
   end
 
   def update
-    boba_shop = BobaShop.find(params[:id])
+    boba_shop = BobaShop.find(params[:shop_id])
     boba_shop.update({
       name: params[:name],
       drive_thru: params[:drive_thru],
@@ -34,5 +34,12 @@ class BobaShopsController < ApplicationController
     })
     boba_shop.save
     redirect_to "/boba_shops/#{boba_shop.id}"
+  end
+
+  def destroy
+    boba_shop = BobaShop.find(params[:shop_id])
+    boba_shop.drinks.destroy_all
+    boba_shop.destroy
+    redirect_to "/boba_shops/"
   end
 end
