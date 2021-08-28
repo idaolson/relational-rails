@@ -5,7 +5,8 @@
 <%= link_to "Pastas", "/pastas"%>
 
 <h1><%= @boba_shop.name %></h1>
-<%= link_to "Update #{@boba_shop.name}", "/boba_shops/#{@boba_shop.id}/edit" %><br><br>
+<%= link_to "Update #{@boba_shop.name}", "/boba_shops/#{@boba_shop.id}/edit" %>
+<%= link_to "Delete #{@boba_shop.name}", "/boba_shops/#{@boba_shop.id}", method: :delete %><br><br>
 
 ID: <%= @boba_shop.id %><br>
 Created at: <%= @boba_shop.created_at %><br>
