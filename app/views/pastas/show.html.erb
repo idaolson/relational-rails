@@ -1,8 +1,15 @@
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
+
 <a href="/pastas">Pasta Index</a>
 
 <h1><%= @pasta.name %></h1>
 
 <p> Pasta ID: <%= @pasta.id %></p>
+<p> Restaurant ID: <%= @pasta.restaurant_id %></p>
 <p> Created at: <%= @pasta.created_at %></p>
 <p> Updated at: <%= @pasta.updated_at %></p>
 <p> Vegan: <%= @pasta.is_vegan %></p>
