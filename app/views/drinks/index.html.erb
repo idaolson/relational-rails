@@ -8,6 +8,7 @@
 
 <% @drinks.each do |drink| %>
   <h3><%= link_to drink.name, "/drinks/#{drink.id}" %></h3>
+  <%= link_to "Update #{drink.name}", "drinks/#{drink.id}/edit" %><br><br>
   Drink ID: <%= drink.id %><br>
   Store ID: <%= drink.boba_shop_id %><br>
   Created at: <%= drink.created_at %><br>
