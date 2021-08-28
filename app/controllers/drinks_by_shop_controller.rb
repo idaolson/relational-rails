@@ -1,6 +1,5 @@
 class DrinksByShopController < ApplicationController
   def index
-    require 'pry'; binding.pry
     @boba_shop = BobaShop.find(params[:id])
     @drinks = @boba_shop.sort_drinks(params[:sort])
   end
