@@ -1,0 +1,19 @@
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
+
+<h1><%= @restaurant.name %> Pasta Menu</h1>
+
+<% @restaurant_pastas.each do |pasta| %>
+  <h3><%= pasta.name %></h3>
+  <p> Pasta ID: <%= pasta.id %></p>
+  <p> Restaurant ID: <%= pasta.restaurant_id %></p>
+  <p> Created at: <%= pasta.created_at %></p>
+  <p> Updated at: <%= pasta.updated_at %></p>
+  <p> Vegan: <%= pasta.is_vegan %></p>
+  <p> Price: <%= pasta.price %></p>
+<%end%>
+
+<%= link_to 'Add a pasta', "/restaurants/#{@restaurant.id}/pastas/new" %>
