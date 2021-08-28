@@ -14,7 +14,7 @@
   <%= form.label :true, "Yes" %>
   <%= form.radio_button :in_stock, false, checked: @drink.in_stock == false %>
   <%= form.label :false, "No" %><br><br/>
-  <%= form.label :price %>
+  <%= form.label :price %><br>
   <%= form.number_field :price, in: 5.99..15.99, value: "#{@drink.price}"%><br><br>
   <%= form.submit "Update #{@drink.name}" %>
 <% end %>

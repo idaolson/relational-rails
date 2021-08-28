@@ -40,12 +40,14 @@ describe 'drinks by shop page' do
     expect(page).to have_content(@drink_3.id)
     expect(page).to have_content(@drink_3.created_at)
     expect(page).to have_content(@drink_3.updated_at)
+    expect(page).to have_content(@drink_3.name)
     expect(page).to have_content(@drink_3.in_stock)
     expect(page).to have_content(@drink_3.price)
 
     expect(page).to have_content(@drink_4.id)
     expect(page).to have_content(@drink_4.created_at)
     expect(page).to have_content(@drink_4.updated_at)
+    expect(page).to have_content(@drink_4.name)
     expect(page).to have_content(@drink_4.in_stock)
     expect(page).to have_content(@drink_4.price)
   end
@@ -63,5 +65,21 @@ describe 'drinks by shop page' do
 
     click_button "Create New Drink"
     expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks")
+  end
+
+  it 'has a link to sort drinks by alphabetical order' do
+    # As a visitor
+    # When I visit the Parent's children Index Page
+    # Then I see a link to sort children in alphabetical order
+    # When I click on the link
+    # I'm taken back to the Parent's children Index Page where I see all of
+    # the parent's children in alphabetical order
+
+    visit "/boba_shops/#{@store_1.id}/drinks"
+    expect(has_link?("Sort")).to eq(true)
+
+    click_link "Sort"
+    expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks")
+    expect(@drink_2.name).to appear_before(@drink_1.name)
   end
 end
