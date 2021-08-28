@@ -57,7 +57,6 @@ describe 'drinks show page' do
     fill_in :price, with: 8.99
 
     click_on "Update #{@drink_2.name}"
-    save_and_open_page
     expect(current_path).to eq("/drinks/#{@drink_2.id}")
   end
 end
