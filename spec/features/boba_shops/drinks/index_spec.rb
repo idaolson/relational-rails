@@ -68,13 +68,6 @@ describe 'drinks by shop page' do
   end
 
   it 'has a link to sort drinks by alphabetical order' do
-    # As a visitor
-    # When I visit the Parent's children Index Page
-    # Then I see a link to sort children in alphabetical order
-    # When I click on the link
-    # I'm taken back to the Parent's children Index Page where I see all of
-    # the parent's children in alphabetical order
-
     visit "/boba_shops/#{@store_1.id}/drinks"
     expect(has_link?("Sort")).to eq(true)
 
