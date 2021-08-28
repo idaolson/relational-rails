@@ -67,6 +67,12 @@ describe 'drinks by shop page' do
     expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks")
   end
 
+  it 'has a link to update drink for each drink' do
+    visit "/boba_shops/#{@store_1.id}/drinks"
+    
+    expect(has_link?("Update #{@drink_1.name}")).to eq(true)
+  end
+
   it 'has a link to sort drinks by alphabetical order' do
     visit "/boba_shops/#{@store_1.id}/drinks"
     expect(has_link?("Sort")).to eq(true)

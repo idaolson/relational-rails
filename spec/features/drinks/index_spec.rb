@@ -34,7 +34,7 @@ describe 'drinks index page' do
     )
   end
 
-  it 'shows (only) all drinks that are in stock with their attributes' do
+  it 'shows (only) all drinks that are in stock (true) with their attributes' do
     visit "/drinks"
 
     expect(page).to have_content(@drink_1.id)
@@ -70,5 +70,11 @@ describe 'drinks index page' do
 
     visit "/boba_shops/#{@store_1.id}/drinks"
     expect(has_link?("Drinks")).to eq(true)
+  end
+
+  it 'has a link to update drink for each drink' do
+    visit "/drinks"
+    
+    expect(has_link?("Update #{@drink_1.name}")).to eq(true)
   end
 end
