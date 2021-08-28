@@ -23,9 +23,11 @@ Rails.application.routes.draw do
   # drinks
   get '/drinks', to: 'drinks#index'
   get '/drinks/:id', to: 'drinks#show'
+  get '/drinks/:id/edit', to: 'drinks#edit'
+  patch '/drinks/:id', to: 'drinks#update'
+
+  # drinks by shop
   get '/boba_shops/:id/drinks', to: 'drinks_by_shop#index'
   get '/boba_shops/:id/drinks/new', to: 'drinks_by_shop#new'
-  get '/drinks/:id/edit', to: 'drinks#edit'
   post '/boba_shops/:id/drinks', to: 'drinks_by_shop#create'
-  patch '/drinks/:id', to: 'drinks#update'
 end
