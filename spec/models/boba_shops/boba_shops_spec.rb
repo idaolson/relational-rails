@@ -56,7 +56,7 @@ describe BobaShop do
         @drink_1
       ]
       sort = true
-      expect(@store_1.sorted_drinks(sort)).to eq(expected)
+      expect(@store_1.sort_drinks(sort)).to eq(expected)
     end
   end
 end
