@@ -1,0 +1,16 @@
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
+
+<h1><%= @drink.name %></h1>
+<%= link_to  "Update #{@drink.name}", "/boba_shops/#{@boba_shop.id}/drinks/#{@drink.id}/edit"%>
+<%= link_to "Delete #{@drink.name}", "/boba_shops/#{@boba_shop.id}/drinks/#{@drink.id}", method: :delete %><br><br>
+
+Drink ID: <%= @drink.id %><br>
+Store ID: <%= @drink.boba_shop_id %><br>
+Created at: <%= @drink.created_at %><br>
+Updated at: <%= @drink.updated_at %><br>
+In stock?: <%= @drink.in_stock %><br>
+price: <%= @drink.price %>
