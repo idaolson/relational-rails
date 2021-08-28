@@ -1,0 +1,20 @@
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
+
+<form action="/pastas" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="pasta[restaurant_id]" value="<%= params[:id] %>"
+  <p>Enter a new pasta name:</p>
+  <input type='text' name='pasta[name]'/><br/>
+  <p>Check if pasta is vegan:</p>
+  <input type='radio' id='true' name='pasta[is_vegan]' value='true'>
+  <label for='true'>Yes</label>
+  <input type='radio' id='false' name='pasta[is_vegan]' value='false'>
+  <label for='false'>No</label>
+  <p>Enter a price:</p>
+  <input type='text' name='pasta[price]' /><br/><br/>
+  <input type='submit'/>
+</form>

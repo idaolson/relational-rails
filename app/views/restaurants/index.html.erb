@@ -1,5 +1,12 @@
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
+
 <h1>All Restaurants</h1>
 
 <% @restaurants.each do |restaurant| %>
-  <h3><a href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a></h3>
-<%end%>
+  <h3><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %>
+    <span style="float : right;">Created at: <%= restaurant.created_at %></span></h3><br/>
+<% end %>
