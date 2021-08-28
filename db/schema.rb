@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 2021_08_25_065442) do
   end
 
   create_table "drinks", force: :cascade do |t|
-    t.index ["boba_shop_id"], name: "index_drinks_on_boba_shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.boolean "in_stock"
     t.decimal "price"
     t.bigint "boba_shop_id"
+    t.index ["boba_shop_id"], name: "index_drinks_on_boba_shop_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
