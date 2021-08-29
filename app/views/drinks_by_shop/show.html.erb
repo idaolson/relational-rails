@@ -6,11 +6,12 @@
 
 <h1><%= @drink.name %></h1>
 <%= link_to  "Update #{@drink.name}", "/boba_shops/#{@boba_shop.id}/drinks/#{@drink.id}/edit"%>
-<%= link_to "Delete #{@drink.name}", "/boba_shops/#{@boba_shop.id}/drinks/#{@drink.id}", method: :delete %><br><br>
-
-Drink ID: <%= @drink.id %><br>
-Store ID: <%= @drink.boba_shop_id %><br>
-Created at: <%= @drink.created_at %><br>
-Updated at: <%= @drink.updated_at %><br>
-In stock?: <%= @drink.in_stock %><br>
-price: <%= @drink.price %>
+<%= link_to "Delete #{@drink.name}", "/boba_shops/#{@boba_shop.id}/drinks/#{@drink.id}", method: :delete %>
+<ul>
+  <li>Drink ID: <%= @drink.id %></li>
+  <li>Store ID: <%= @drink.boba_shop_id %></li>
+  <li>Created at: <%= @drink.created_at %></li>
+  <li>Updated at: <%= @drink.updated_at %></li>
+  <li>In stock?: <%= @drink.in_stock %></li>
+  <li>Price: <%= @drink.price %></li>
+</ul>
