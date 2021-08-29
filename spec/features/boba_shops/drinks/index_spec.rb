@@ -88,4 +88,16 @@ describe 'drinks by shop page' do
     expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks")
     expect(@drink_2.name).to appear_before(@drink_1.name)
   end
+
+  it 'it can filter drinks by a threshold' do
+    visit "/boba_shops/#{@store_1.id}/drinks"
+    expect(has_button?("Only return records with more than  of price")).to eq(true)
+    
+    fill_in :price, with: "11.99"
+    click_button "Only return records with more than  of price"
+    
+    expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks")
+    expect(page).to have_no_content(@drink_1.name)
+    expect(page).to have_no_content(@drink_2.name)
+  end
 end

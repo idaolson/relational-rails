@@ -16,8 +16,4 @@ class BobaShop < ApplicationRecord
       drinks
     end
   end
-
-  # def filter_by_price(price)
-  #   drinks.where(price: > price.to_f)
-  # end
 end

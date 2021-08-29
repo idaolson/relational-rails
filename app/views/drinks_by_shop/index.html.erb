@@ -6,7 +6,12 @@
 
 <h1><%= link_to @boba_shop.name, "/boba_shops/#{@boba_shop.id}" %>'s Drinks</h1>
 <%= link_to "Create Drink", "/boba_shops/#{@boba_shop.id}/drinks/new" %>
-<%= link_to "Sort", "/boba_shops/#{@boba_shop.id}/drinks?sort=true" %>
+<%= link_to "Sort", "/boba_shops/#{@boba_shop.id}/drinks?sort=true" %><br><br>
+<%= form_with url: "/boba_shops/#{@boba_shop.id}/drinks", method: :get, local: true do |form| %>
+  <%= form.label :price %>
+  <%= form.number_field :price, in: 5.99..15.99 %>
+  <%= form.submit "Only return records with more than #{@price} of price" %>
+<% end %>
 
 <% @drinks.each do |drink| %>
   <h3><%= link_to drink.name, "/boba_shops/#{@boba_shop.id}/drinks/#{drink.id}" %></h3>

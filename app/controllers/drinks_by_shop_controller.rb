@@ -1,7 +1,8 @@
 class DrinksByShopController < ApplicationController
   def index
     @boba_shop = BobaShop.find(params[:shop_id])
-    @drinks = @boba_shop.sort_drinks(params[:sort])
+    @price = params[:price]
+    @drinks = @boba_shop.sort_drinks(params[:sort]).filter_by_price(@price)
   end
 
   def show
