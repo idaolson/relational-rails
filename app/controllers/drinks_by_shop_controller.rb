@@ -16,11 +16,7 @@ class DrinksByShopController < ApplicationController
 
   def create
     boba_shop = BobaShop.find(params[:shop_id])
-    drink = boba_shop.drinks.create!(
-      name: params[:name],
-      in_stock: params[:in_stock],
-      price: params[:price]
-    )
+    drink = boba_shop.drinks.create!(drinks_by_shop_params)
     drink.save
     redirect_to "/boba_shops/#{boba_shop.id}/drinks"
   end
@@ -28,11 +24,7 @@ class DrinksByShopController < ApplicationController
   def update
     boba_shop = BobaShop.find(params[:shop_id])
     drink = boba_shop.drinks.find(params[:drink_id])
-    drink.update({
-      name: params[:name],
-      in_stock: params[:in_stock],
-      price: params[:price]
-    })
+    drink.update(drinks_by_shop_params)
     drink.save
     redirect_to "/boba_shops/#{boba_shop.id}/drinks"
   end
@@ -46,5 +38,11 @@ class DrinksByShopController < ApplicationController
     boba_shop = BobaShop.find(params[:shop_id])
     boba_shop.drinks.destroy(params[:drink_id])
     redirect_to "/boba_shops/#{boba_shop.id}/drinks"
+  end
+
+  private
+
+  def drinks_by_shop_params
+    params.permit(:name, :in_stock, :price)
   end
 end
