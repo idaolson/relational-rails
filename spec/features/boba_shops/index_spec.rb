@@ -80,6 +80,7 @@ describe 'boba shops index page' do
 
     click_button "Create New Boba Shop"
     expect(current_path).to eq("/boba_shops")
+    expect(page).to have_content("Tea Station")
   end
 
   it 'has a link to update each boba shop' do

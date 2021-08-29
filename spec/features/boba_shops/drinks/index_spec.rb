@@ -34,6 +34,11 @@ describe 'drinks by shop page' do
     )
   end
 
+  it 'has a link to go back to the boba shop' do
+    visit "/boba_shops/#{@store_2.id}/drinks"
+    expect(has_link?("#{@store_2.name}"))
+  end
+
   it 'shows drinks that are associated with its boba shop' do
     visit "/boba_shops/#{@store_2.id}/drinks"
 
@@ -68,9 +73,11 @@ describe 'drinks by shop page' do
   end
 
   it 'has a link to update drink for each drink' do
-    visit "/boba_shops/#{@store_1.id}/drinks"
-    
+    visit "/boba_shops/#{@store_1.id}/drinks/#{@drink_1.id}"
     expect(has_link?("Update #{@drink_1.name}")).to eq(true)
+
+    click_link "Update #{@drink_1.name}"
+    expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks/#{@drink_1.id}/edit")
   end
 
   it 'has a link to sort drinks by alphabetical order' do
