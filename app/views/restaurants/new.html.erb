@@ -1,10 +1,19 @@
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
+
 <form action="/restaurants" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p>Enter a new restaurant name:</p>
   <input type='text' name='restaurant[name]'/><br/>
   <p>Check if delivery available:</p>
-  <input type='radio' name='restaurant[delivery]' value=true /><br/>
+  <input type='radio' id='true' name='restaurant[delivery]' value='true'>
+  <label for='true'>Yes</label>
+  <input type='radio' id='false' name='restaurant[delivery]' value='false'>
+  <label for='false'>No</label>
   <p>Enter number of Michelin stars:</p>
-  <input type='number' name='restaurant[michelin_stars]' min=0 max=3 /><br/>
+  <input type='number' name='restaurant[michelin_stars]' min=0 max=3 /><br/><br/>
   <input type='submit'/>
 </form>

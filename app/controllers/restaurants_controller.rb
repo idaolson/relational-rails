@@ -1,11 +1,6 @@
-require 'date'
-
 class RestaurantsController < ApplicationController
   def index
-    @restaurants = Restaurant.all
-  end
-
-  def new
+    @restaurants = Restaurant.order_by_created_at
   end
 
   def create

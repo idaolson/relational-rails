@@ -1,10 +1,20 @@
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
+
 <a href="/restaurants">Restaurant Index</a>
 
 <h1><%= @restaurant.name %></h1>
 
+<p> Restaurant ID: <%= @restaurant.id %></p>
 <p> Created at: <%= @restaurant.created_at %></p>
 <p> Updated at: <%= @restaurant.updated_at %></p>
 <p> Delivery available: <%= @restaurant.delivery %></p>
 <p> Number of Michelin Stars: <%= @restaurant.michelin_stars %></p>
+<p> Pasta count: <%= @restaurant.pasta_count %></p>
 
-<a href="/restaurants/<%= @restaurant.id %>/edit">Edit</a>
+<a href="/restaurants/<%= @restaurant.id %>/edit">Edit</a><br/>
+<%= link_to "Add pasta to menu", "/restaurants/#{@restaurant.id}/pastas/new" %>
+<%= link_to "Pasta Menu", "/restaurants/#{@restaurant.id}/pastas" %><br>

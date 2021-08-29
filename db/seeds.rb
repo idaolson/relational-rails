@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+BobaShop.destroy_all
+Drink.destroy_all
+Restaurant.destroy_all
+Pasta.destroy_all
+
 # boba shops
 @store_1 = BobaShop.create!(
   name: 'Sharetea',
