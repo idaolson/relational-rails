@@ -37,9 +37,7 @@ class BobaShopsController < ApplicationController
   end
 
   def destroy
-    boba_shop = BobaShop.find(params[:shop_id])
-    boba_shop.drinks.destroy_all
-    boba_shop.destroy
+    BobaShop.destroy(params[:shop_id])
     redirect_to "/boba_shops/"
   end
 end

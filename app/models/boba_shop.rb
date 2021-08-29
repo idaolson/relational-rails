@@ -1,5 +1,5 @@
 class BobaShop < ApplicationRecord
-  has_many :drinks
+  has_many :drinks, dependent: :destroy
 
   def self.order_by_creation_time
     order(created_at: :desc)
@@ -16,4 +16,8 @@ class BobaShop < ApplicationRecord
       drinks
     end
   end
+
+  # def filter_by_price(price)
+  #   drinks.where(price: > price.to_f)
+  # end
 end
