@@ -29,13 +29,23 @@
   in_stock: true,
   price: 6.99
 )
-@drink_3 = @store_2.drinks.create!(
-  name: 'Honey Milk Tea',
+@drink_3 = @store_1.drinks.create!(
+  name: 'Hokkaido Milk Tea',
   in_stock: true,
-  price: 6.99
+  price: 9.99
 )
 @drink_4 = @store_2.drinks.create!(
   name: 'Taro Milk Tea',
   in_stock: true,
+  price: 6.99
+)
+@drink_5 = @store_2.drinks.create!(
+  name: 'Jasmine Milk Tea',
+  in_stock: true,
   price: 9.99
+)
+@drink_6 = @store_2.drinks.create!(
+  name: 'Black Milk Tea',
+  in_stock: true,
+  price: 11.99
 )
