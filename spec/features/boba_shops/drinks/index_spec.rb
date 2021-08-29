@@ -100,4 +100,13 @@ describe 'drinks by shop page' do
     expect(page).to have_no_content(@drink_1.name)
     expect(page).to have_no_content(@drink_2.name)
   end
+
+  it 'has a link to delete drink for each drink' do
+    visit "/boba_shops/#{@store_1.id}/drinks"
+    expect(has_link?("Delete #{@drink_1.name}")).to eq(true)
+
+    click_link "Delete #{@drink_1.name}"
+    expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks")
+    expect(page).to have_no_content("#{@drink_1.name}")
+  end
 end

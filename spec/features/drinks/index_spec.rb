@@ -77,4 +77,13 @@ describe 'drinks index page' do
     
     expect(has_link?("Update #{@drink_1.name}")).to eq(true)
   end
+
+  it 'has a link to delete drink for each drink' do
+    visit "/drinks"
+    expect(has_link?("Delete #{@drink_1.name}")).to eq(true)
+
+    click_link "Delete #{@drink_1.name}"
+    expect(current_path).to eq("/drinks")
+    expect(page).to have_no_content("#{@drink_1.name}")
+  end
 end

@@ -9,6 +9,7 @@
 
 <% @boba_shops.each do |boba_shop| %>
   <h3><%= link_to boba_shop.name, "/boba_shops/#{boba_shop.id}" %></h3>
-  <%= link_to "Update #{boba_shop.name}", "/boba_shops/#{boba_shop.id}/edit" %><br><br>
-  Created at: <%= boba_shop.created_at %><br>
+  Created at: <%= boba_shop.created_at %><br><br>
+  <%= link_to "Update #{boba_shop.name}", "/boba_shops/#{boba_shop.id}/edit" %>
+  <%= link_to "Delete #{boba_shop.name}", "/boba_shops/#{boba_shop.id}", method: :delete %>
 <% end %>
