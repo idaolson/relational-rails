@@ -22,7 +22,7 @@
 @drink_1 = @store_1.drinks.create!(
   name: 'Okinawan Milk Tea',
   in_stock: true,
-  price: 6.99
+  price: 10.99
 )
 @drink_2 = @store_1.drinks.create!(
   name: 'Hazelnut Milk Tea',
@@ -37,5 +37,5 @@
 @drink_4 = @store_2.drinks.create!(
   name: 'Taro Milk Tea',
   in_stock: true,
-  price: 6.99
+  price: 9.99
 )
