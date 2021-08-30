@@ -4,8 +4,6 @@
 <%= link_to "Restaurants", "/restaurants"%>
 <%= link_to "Pastas", "/pastas"%>
 
-<a href="/restaurants">Restaurant Index</a>
-
 <h1><%= @restaurant.name %></h1>
 
 <p> Restaurant ID: <%= @restaurant.id %></p>
@@ -15,6 +13,6 @@
 <p> Number of Michelin Stars: <%= @restaurant.michelin_stars %></p>
 <p> Pasta count: <%= @restaurant.pasta_count %></p>
 
-<a href="/restaurants/<%= @restaurant.id %>/edit">Edit</a><br/>
-<%= link_to "Add pasta to menu", "/restaurants/#{@restaurant.id}/pastas/new" %>
-<%= link_to "Pasta Menu", "/restaurants/#{@restaurant.id}/pastas" %><br>
+<%= link_to "Update Restaurant", "/restaurants/#{@restaurant.id}/edit" %><br/>
+<%= link_to "Add Pasta to Menu", "/restaurants/#{@restaurant.id}/pastas/new" %><br/>
+<%= link_to "Pasta Menu", "/restaurants/#{@restaurant.id}/pastas" %>
