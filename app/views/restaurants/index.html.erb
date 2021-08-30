@@ -4,9 +4,10 @@
 <%= link_to "Restaurants", "/restaurants"%>
 <%= link_to "Pastas", "/pastas"%>
 
-<h1>All Restaurants</h1>
+<h1>Restaurants</h1>
 
-<% @restaurants.each do |restaurant| %>
-  <h3><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %>
-    <span style="float : right;">Created at: <%= restaurant.created_at %></span></h3><br/>
-<% end %>
+<ul><% @restaurants.each do |restaurant| %>
+  <li><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %> - Created at: <%= restaurant.created_at %></li>
+<% end %></ul>
+
+<%= link_to "New Restaurant", "/restaurants/new"%>
