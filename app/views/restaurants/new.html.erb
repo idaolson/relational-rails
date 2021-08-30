@@ -4,16 +4,13 @@
 <%= link_to "Restaurants", "/restaurants"%>
 <%= link_to "Pastas", "/pastas"%>
 
-<form action="/restaurants" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Enter a new restaurant name:</p>
-  <input type='text' name='restaurant[name]'/><br/>
-  <p>Check if delivery available:</p>
-  <input type='radio' id='true' name='restaurant[delivery]' value='true'>
-  <label for='true'>Yes</label>
-  <input type='radio' id='false' name='restaurant[delivery]' value='false'>
-  <label for='false'>No</label>
-  <p>Enter number of Michelin stars:</p>
-  <input type='number' name='restaurant[michelin_stars]' min=0 max=3 /><br/><br/>
-  <input type='submit'/>
-</form>
+<h1>Add New Restaurant</h1>
+<%= form_with url: "/restaurants", method: :post, local: true do |form| %>
+  <%= form.label :name, "Restaurant Name" %>
+  <%= form.text_field :name%><br/><br/>
+  <%= form.label :delivery, "Delivery Available?" %>
+  <%= form.check_box :delivery %><br/><br/>
+  <%= form.label :michelin_stars, "Number of Michelin Stars" %>
+  <%= form.number_field :michelin_stars, in: 0..3 %><br/><br/>
+  <%= form.submit "Create Restaurant" %>
+<% end %>
