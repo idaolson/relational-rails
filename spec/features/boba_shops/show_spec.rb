@@ -73,4 +73,12 @@ describe 'boba shops show page' do
     click_on "Update #{@store_1.name}"
     expect(current_path).to eq("/boba_shops/#{@store_1.id}")
   end
+
+  it 'has a link to delete a boba shop' do
+    visit "/boba_shops/#{@store_1.id}"
+    expect(has_link?("Delete #{@store_1.name}")).to eq(true)
+
+    click_on "Delete #{@store_1.name}"
+    expect(has_no_content?("#{@store_1.name}")).to eq(true)
+  end
 end

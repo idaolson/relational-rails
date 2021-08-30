@@ -1,0 +1,20 @@
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
+
+<br>
+<h1>Edit <%= @drink.name %></h1>
+<%= form_with url: "/boba_shops/#{@boba_shop.id}/drinks/#{@drink.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name, value: "#{@drink.name}" %><br><br>
+  <%= form.label :in_stock, "In stock?" %><br>
+  <%= form.radio_button :in_stock, true, checked: @drink.in_stock == true %>
+  <%= form.label :true, "Yes" %>
+  <%= form.radio_button :in_stock, false, checked: @drink.in_stock == false %>
+  <%= form.label :false, "No" %><br><br/>
+  <%= form.label :price %><br>
+  <%= form.number_field :price, in: 5.99..15.99, value: "#{@drink.price}"%><br><br>
+  <%= form.submit "Update #{@drink.name}" %>
+<% end %>

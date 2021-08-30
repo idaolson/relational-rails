@@ -1,5 +1,5 @@
 class BobaShop < ApplicationRecord
-  has_many :drinks
+  has_many :drinks, dependent: :destroy
 
   def self.order_by_creation_time
     order(created_at: :desc)

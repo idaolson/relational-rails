@@ -80,5 +80,23 @@ describe 'boba shops index page' do
 
     click_button "Create New Boba Shop"
     expect(current_path).to eq("/boba_shops")
+    expect(page).to have_content("Tea Station")
+  end
+
+  it 'has a link to update each boba shop' do
+    visit "/boba_shops"
+    expect(has_link?("Update #{@store_1.name}")).to eq(true)
+
+    click_on "Update #{@store_1.name}"
+    expect(current_path).to eq("/boba_shops/#{@store_1.id}/edit")
+  end
+
+  it 'has a link to delete a each boba shop' do
+    visit "/boba_shops"
+    expect(has_link?("Delete #{@store_1.name}")).to eq(true)
+
+    click_on "Delete #{@store_1.name}"
+    expect(current_path).to eq("/boba_shops")
+    expect(page).to have_no_content("#{@store_1.name}")
   end
 end

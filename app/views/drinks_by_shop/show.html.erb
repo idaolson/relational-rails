@@ -5,8 +5,8 @@
 <%= link_to "Pastas", "/pastas"%>
 
 <h1><%= @drink.name %></h1>
-<%= link_to  "Update #{@drink.name}", "/drinks/#{@drink.id}/edit"%>
-<%= link_to "Delete #{@drink.name}", "/drinks/#{@drink.id}", method: :delete %>
+<%= link_to  "Update #{@drink.name}", "/boba_shops/#{@boba_shop.id}/drinks/#{@drink.id}/edit"%>
+<%= link_to "Delete #{@drink.name}", "/boba_shops/#{@boba_shop.id}/drinks/#{@drink.id}", method: :delete %>
 <ul>
   <li>Drink ID: <%= @drink.id %></li>
   <li>Store ID: <%= @drink.boba_shop_id %></li>

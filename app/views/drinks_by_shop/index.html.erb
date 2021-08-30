@@ -4,17 +4,25 @@
 <%= link_to "Restaurants", "/restaurants"%>
 <%= link_to "Pastas", "/pastas"%>
 
-<h1><%= @boba_shop.name %>'s Drinks</h1>
+<h1><%= link_to @boba_shop.name, "/boba_shops/#{@boba_shop.id}" %>'s Drinks</h1>
 <%= link_to "Create Drink", "/boba_shops/#{@boba_shop.id}/drinks/new" %>
-<%= link_to "Sort", "/boba_shops/#{@boba_shop.id}/drinks?sort=true" %>
+<%= link_to "Sort", "/boba_shops/#{@boba_shop.id}/drinks?sort=true" %><br><br>
+<%= form_with url: "/boba_shops/#{@boba_shop.id}/drinks", method: :get, local: true do |form| %>
+  <%= form.label :price %>
+  <%= form.number_field :price, in: 5.99..15.99 %>
+  <%= form.submit "Only return records with more than #{@price} of price" %>
+<% end %>
 
 <% @drinks.each do |drink| %>
-  <h3><%= drink.name %></h3>
-  <%= link_to "Update #{drink.name}", "/drinks/#{drink.id}/edit" %><br><br>
-  Drink ID: <%= drink.id %><br>
-  Store ID: <%= drink.boba_shop_id %><br>
-  Created at: <%= drink.created_at %><br>
-  Updated at: <%= drink.updated_at %><br>
-  In stock?: <%= drink.in_stock %><br>
-  Price: <%= drink.price %>
+  <h3><%= link_to drink.name, "/boba_shops/#{@boba_shop.id}/drinks/#{drink.id}" %></h3>
+  <%= link_to "Update #{drink.name}", "/boba_shops/#{@boba_shop.id}/drinks/#{drink.id}/edit" %>
+  <%= link_to "Delete #{drink.name}", "/boba_shops/#{@boba_shop.id}/drinks/#{drink.id}", method: :delete %>
+  <ul>
+    <li>Drink ID: <%= drink.id %></li>
+    <li>Store ID: <%= drink.boba_shop_id %></li>
+    <li>Created at: <%= drink.created_at %></li>
+    <li>Updated at: <%= drink.updated_at %></li>
+    <li>In stock?: <%= drink.in_stock %></li>
+    <li>Price: <%= drink.price %></li>
+  </ul>
 <% end %>
