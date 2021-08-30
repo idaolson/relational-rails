@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-BobaShop.destroy_all
-Drink.destroy_all
-Restaurant.destroy_all
-Pasta.destroy_all
+# BobaShop.destroy_all
+# Drink.destroy_all
+# Restaurant.destroy_all
+# Pasta.destroy_all
 
 # boba shops
 @store_1 = BobaShop.create!(
@@ -27,20 +27,30 @@ Pasta.destroy_all
 @drink_1 = @store_1.drinks.create!(
   name: 'Okinawan Milk Tea',
   in_stock: true,
-  price: 6.99
+  price: 10.99
 )
 @drink_2 = @store_1.drinks.create!(
   name: 'Hazelnut Milk Tea',
   in_stock: true,
   price: 6.99
 )
-@drink_3 = @store_2.drinks.create!(
-  name: 'Honey Milk Tea',
+@drink_3 = @store_1.drinks.create!(
+  name: 'Hokkaido Milk Tea',
   in_stock: true,
-  price: 6.99
+  price: 9.99
 )
 @drink_4 = @store_2.drinks.create!(
   name: 'Taro Milk Tea',
   in_stock: true,
   price: 6.99
+)
+@drink_5 = @store_2.drinks.create!(
+  name: 'Jasmine Milk Tea',
+  in_stock: true,
+  price: 9.99
+)
+@drink_6 = @store_2.drinks.create!(
+  name: 'Black Milk Tea',
+  in_stock: true,
+  price: 11.99
 )

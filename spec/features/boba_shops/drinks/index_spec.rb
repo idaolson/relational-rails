@@ -34,6 +34,11 @@ describe 'drinks by shop page' do
     )
   end
 
+  it 'has a link to go back to the boba shop' do
+    visit "/boba_shops/#{@store_2.id}/drinks"
+    expect(has_link?("#{@store_2.name}"))
+  end
+
   it 'shows drinks that are associated with its boba shop' do
     visit "/boba_shops/#{@store_2.id}/drinks"
 
@@ -67,19 +72,41 @@ describe 'drinks by shop page' do
     expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks")
   end
 
-  it 'has a link to sort drinks by alphabetical order' do
-    # As a visitor
-    # When I visit the Parent's children Index Page
-    # Then I see a link to sort children in alphabetical order
-    # When I click on the link
-    # I'm taken back to the Parent's children Index Page where I see all of
-    # the parent's children in alphabetical order
+  it 'has a link to update drink for each drink' do
+    visit "/boba_shops/#{@store_1.id}/drinks/#{@drink_1.id}"
+    expect(has_link?("Update #{@drink_1.name}")).to eq(true)
 
+    click_link "Update #{@drink_1.name}"
+    expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks/#{@drink_1.id}/edit")
+  end
+
+  it 'has a link to sort drinks by alphabetical order' do
     visit "/boba_shops/#{@store_1.id}/drinks"
     expect(has_link?("Sort")).to eq(true)
 
     click_link "Sort"
     expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks")
     expect(@drink_2.name).to appear_before(@drink_1.name)
+  end
+
+  it 'it can filter drinks by a threshold' do
+    visit "/boba_shops/#{@store_1.id}/drinks"
+    expect(has_button?("Only return records with more than  of price")).to eq(true)
+    
+    fill_in :price, with: "11.99"
+    click_button "Only return records with more than  of price"
+    
+    expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks")
+    expect(page).to have_no_content(@drink_1.name)
+    expect(page).to have_no_content(@drink_2.name)
+  end
+
+  it 'has a link to delete drink for each drink' do
+    visit "/boba_shops/#{@store_1.id}/drinks"
+    expect(has_link?("Delete #{@drink_1.name}")).to eq(true)
+
+    click_link "Delete #{@drink_1.name}"
+    expect(current_path).to eq("/boba_shops/#{@store_1.id}/drinks")
+    expect(page).to have_no_content("#{@drink_1.name}")
   end
 end

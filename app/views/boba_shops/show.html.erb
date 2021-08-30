@@ -5,13 +5,15 @@
 <%= link_to "Pastas", "/pastas"%>
 
 <h1><%= @boba_shop.name %></h1>
-<%= link_to "Update #{@boba_shop.name}", "/boba_shops/#{@boba_shop.id}/edit" %><br><br>
-
-ID: <%= @boba_shop.id %><br>
-Created at: <%= @boba_shop.created_at %><br>
-Updated at: <%= @boba_shop.updated_at %><br>
-Has drive-thru?: <%= @boba_shop.drive_thru %><br>
-Maximum capacity: <%= @boba_shop.capacity %><br>
-Drinks count: <%= @boba_shop.drinks_count %><br><br>
+<%= link_to "Update #{@boba_shop.name}", "/boba_shops/#{@boba_shop.id}/edit" %>
+<%= link_to "Delete #{@boba_shop.name}", "/boba_shops/#{@boba_shop.id}", method: :delete %>
+<ul>
+  <li>ID: <%= @boba_shop.id %></li>
+  <li>Created at: <%= @boba_shop.created_at %></li>
+  <li>Updated at: <%= @boba_shop.updated_at %></li>
+  <li>Has drive-thru?: <%= @boba_shop.drive_thru %></li>
+  <li> Maximum capacity: <%= @boba_shop.capacity %></li>
+  <li>Drinks count: <%= @boba_shop.drinks_count %></li>
+</ul>
 <%= link_to "View Drinks", "/boba_shops/#{@boba_shop.id}/drinks" %><br>
 
