@@ -31,4 +31,22 @@ RSpec.describe "restaurant-parent show" do
       restaurant_id: @rest_2.id,
       })
   end
+
+  # User Story 12
+  it "can update an existing restaurant's attributes" do
+    visit "/restaurants/#{@rest_1.id}"
+    expect(has_link?('Update Restaurant')).to eq(true)
+
+    click_on 'Update Restaurant'
+    expect(current_path).to eq("/restaurants/#{@rest_1.id}/edit")
+
+    fill_in :name, with: 'Olive Garden'
+    check :delivery
+    fill_in :michelin_stars, with: '0'
+
+    click_button 'Update Restaurant'
+    expect(current_path).to eq('/restaurants')
+    expect(page).to have_content('Olive Garden')
+    expect(page).to have_no_content("Geraldo's")
+  end
 end
