@@ -5,9 +5,9 @@ class RestaurantsController < ApplicationController
 
   def create
     restaurant = Restaurant.new({
-      name: params[:restaurant][:name],
-      delivery: params[:restaurant][:delivery],
-      michelin_stars: params[:restaurant][:michelin_stars],
+      name: params[:name],
+      delivery: params[:delivery],
+      michelin_stars: params[:michelin_stars],
       })
     restaurant.save
 
@@ -26,12 +26,12 @@ class RestaurantsController < ApplicationController
     restaurant = Restaurant.find(params[:id])
 
     restaurant.update({
-      name: params[:restaurant][:name],
-      delivery: params[:restaurant][:delivery],
-      michelin_stars: params[:restaurant][:michelin_stars],
+      name: params[:name],
+      delivery: params[:delivery],
+      michelin_stars: params[:michelin_stars],
       })
 
     restaurant.save
-    redirect_to "/restaurants/#{restaurant.id}"
+    redirect_to "/restaurants"
   end
 end
