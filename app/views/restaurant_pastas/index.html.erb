@@ -4,16 +4,16 @@
 <%= link_to "Restaurants", "/restaurants"%>
 <%= link_to "Pastas", "/pastas"%>
 
-<h1><%= @restaurant.name %> Pasta Menu</h1>
+<h1><%= link_to "#{@restaurant.name} Pasta Menu", "/restaurants/#{@restaurant.id}" %></h1>
 
 <% @restaurant_pastas.each do |pasta| %>
   <h3><%= pasta.name %></h3>
-  <p> Pasta ID: <%= pasta.id %></p>
-  <p> Restaurant ID: <%= pasta.restaurant_id %></p>
-  <p> Created at: <%= pasta.created_at %></p>
-  <p> Updated at: <%= pasta.updated_at %></p>
-  <p> Vegan: <%= pasta.is_vegan %></p>
-  <p> Price: <%= pasta.price %></p>
+  Pasta ID: <%= pasta.id %><br/>
+  Restaurant ID: <%= pasta.restaurant_id %><br/>
+  Created at: <%= pasta.created_at %><br/>
+  Updated at: <%= pasta.updated_at %><br/>
+  Vegan: <%= pasta.is_vegan %><br/>
+  Price: <%= pasta.price %><br/>
 <%end%>
-
+<br/>
 <%= link_to 'Add a pasta', "/restaurants/#{@restaurant.id}/pastas/new" %>
