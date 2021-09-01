@@ -41,7 +41,6 @@ RSpec.describe "restaurant-parent index" do
 
   # User Story 5
   it "displays a restaurant's pasta menu with attributes" do
-
     visit "/restaurants/#{@rest_1.id}/pastas"
         # save_and_open_page
     expect(page).to have_content(@pasta_1.id)
@@ -80,5 +79,18 @@ RSpec.describe "restaurant-parent index" do
     click_link "Sort By Pasta Name"
     expect(current_path).to eq("/restaurants/#{@rest_1.id}/pastas")
     expect(@pasta_2.name).to appear_before(@pasta_1.name)
+  end
+
+  # User Story 21
+  it "allows input to return records that meet a criteria" do
+    visit "/restaurants/#{@rest_1.id}/pastas"
+    expect(page).to have_content("Only Return Records That Cost More Than:")
+
+    fill_in :price, with: "7.01"
+    click_button "submit"
+
+    expect(current_path).to eq("/restaurants/#{@rest_1.id}/pastas")
+    expect(page).to have_no_content(@pasta_1.name)
+    expect(page).to have_content(@pasta_2.name)
   end
 end
