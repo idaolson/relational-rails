@@ -3,14 +3,12 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.order_by_created_at
   end
 
-  def create
-    restaurant = Restaurant.new({
-      name: params[:name],
-      delivery: params[:delivery],
-      michelin_stars: params[:michelin_stars],
-      })
-    restaurant.save
+  def new
+  end
 
+  def create
+    restaurant = Restaurant.new(params.permit(:name, :delivery, :michelin_stars))
+    restaurant.save
     redirect_to '/restaurants'
   end
 
@@ -24,14 +22,14 @@ class RestaurantsController < ApplicationController
 
   def update
     restaurant = Restaurant.find(params[:id])
-
-    restaurant.update({
-      name: params[:name],
-      delivery: params[:delivery],
-      michelin_stars: params[:michelin_stars],
-      })
-
+    restaurant.update(params.permit(:name, :delivery, :michelin_stars))
     restaurant.save
+    redirect_to "/restaurants/#{restaurant.id}"
+  end
+
+  def destroy
+    restaurant = Restaurant.find(params[:id])
+    restaurant.destroy!
     redirect_to "/restaurants"
   end
 end
