@@ -5,8 +5,8 @@ class Drink < ApplicationRecord
     where(in_stock: true)
   end
 
-  def self.filter_by_price(price = nil)
-    price = "0" if price == nil
+  def self.filter_by_price(price)
+    price = 0 if price == ""
     where("price > #{price}")
   end
 end

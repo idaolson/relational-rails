@@ -39,8 +39,6 @@ ActiveRecord::Schema.define(version: 2021_08_30_191158) do
     t.string "name"
     t.boolean "is_vegan"
     t.decimal "price"
-    t.bigint "restaurant_id"
-    t.index ["restaurant_id"], name: "index_pasta_on_restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -52,5 +50,4 @@ ActiveRecord::Schema.define(version: 2021_08_30_191158) do
   end
 
   add_foreign_key "drinks", "boba_shops"
-  add_foreign_key "pasta", "restaurants"
 end
