@@ -94,12 +94,12 @@ Pasta.destroy_all
 @pasta_5 = Pasta.create!(
   name: 'orzo',
   is_vegan: false,
-  price: 4.50,
+  price: 4.59,
   restaurant_id: @rest_2.id
 )
 @pasta_6 = Pasta.create!(
   name: 'farfalle',
   is_vegan: true,
-  price: 10,
+  price: 10.03,
   restaurant_id: @rest_2.id
 )
