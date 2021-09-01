@@ -4,8 +4,6 @@
 <%= link_to "Restaurants", "/restaurants"%>
 <%= link_to "Pastas", "/pastas"%>
 
-<a href="/pastas">Pasta Index</a>
-
 <h1><%= @pasta.name %></h1>
 
 <p> Pasta ID: <%= @pasta.id %></p>
@@ -15,4 +13,5 @@
 <p> Vegan: <%= @pasta.is_vegan %></p>
 <p> Price: <%= @pasta.price %></p>
 
-<a href="/pastas/<%= @pasta.id %>/edit">Edit</a>
+<%= link_to "Update Pasta", "/pastas/#{@pasta.id}/edit" %><br/>
+<%= link_to "Delete Pastas", "/pastas/#{@pasta.id}", method: :delete %><br/>
