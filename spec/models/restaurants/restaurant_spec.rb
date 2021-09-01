@@ -37,11 +37,15 @@ RSpec.describe Restaurant do
         })
     end
 
+    it "creates a restaurant" do
+      expect(@rest_1).to be_a(Restaurant)
+    end
+
     it 'puts restaurants in order by created_at' do
       expect(Restaurant.order_by_created_at).to eq([@rest_2, @rest_1])
     end
 
-    it 'can count the number of drinks' do
+    it 'can count the number of pastas' do
       expect(@rest_1.pasta_count).to eq(2)
       expect(@rest_2.pasta_count).to eq(1)
     end

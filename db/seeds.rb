@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# BobaShop.destroy_all
-# Drink.destroy_all
-# Restaurant.destroy_all
-# Pasta.destroy_all
+BobaShop.destroy_all
+Drink.destroy_all
+Restaurant.destroy_all
+Pasta.destroy_all
 
 # boba shops
 @store_1 = BobaShop.create!(
@@ -53,4 +53,53 @@
   name: 'Black Milk Tea',
   in_stock: true,
   price: 11.99
+)
+
+
+# restaurants
+@rest_1 = Restaurant.create!(
+  name: "Geraldo's",
+  delivery: true,
+  michelin_stars: 3
+)
+@rest_2 = Restaurant.create!(
+  name: "Gambardella's",
+  delivery: false,
+  michelin_stars: 1
+)
+@pasta_1 = Pasta.create!(
+  name: 'rigatoni',
+  is_vegan: false,
+  price: 6.99,
+  restaurant_id: @rest_1.id
+)
+@pasta_2 = Pasta.create!(
+  name: 'bucatini',
+  is_vegan: true,
+  price: 7.99,
+  restaurant_id: @rest_1.id
+)
+@pasta_3 = Pasta.create!(
+  name: 'strozzapreti',
+  is_vegan: false,
+  price: 5.99,
+  restaurant_id: @rest_1.id
+)
+@pasta_4 = Pasta.create!(
+  name: 'orecchiette',
+  is_vegan: true,
+  price: 8.99,
+  restaurant_id: @rest_2.id
+)
+@pasta_5 = Pasta.create!(
+  name: 'orzo',
+  is_vegan: false,
+  price: 4.50,
+  restaurant_id: @rest_2.id
+)
+@pasta_6 = Pasta.create!(
+  name: 'farfalle',
+  is_vegan: true,
+  price: 10,
+  restaurant_id: @rest_2.id
 )

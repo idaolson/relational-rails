@@ -45,8 +45,33 @@ RSpec.describe "restaurant-parent show" do
     fill_in :michelin_stars, with: '0'
 
     click_button 'Update Restaurant'
-    expect(current_path).to eq('/restaurants')
+    expect(current_path).to eq("/restaurants/#{@rest_1.id}")
     expect(page).to have_content('Olive Garden')
+    expect(page).to have_no_content("Geraldo's")
+  end
+
+  # User story 13
+  it 'can add a new pasta' do
+    visit "/restaurants/#{@rest_1.id}/pastas"
+    expect(has_link?("Create Pasta")).to eq(true)
+
+    click_link "Create Pasta"
+    expect(current_path).to eq("/restaurants/#{@rest_1.id}/pastas/new")
+
+    fill_in :name, with: 'tortellini'
+    fill_in :price, with: '4.23'
+
+    click_button "Create Pasta"
+    expect(current_path).to eq("/restaurants/#{@rest_1.id}/pastas")
+  end
+
+  # User Story 19
+  it 'has link to delete restaurant' do
+    visit "/restaurants/#{@rest_1.id}"
+    expect(has_link?("Delete Restaurant")).to eq(true)
+
+    click_on "Delete Restaurant"
+    expect(current_path).to eq("/restaurants")
     expect(page).to have_no_content("Geraldo's")
   end
 end

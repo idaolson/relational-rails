@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "restaurant-parent index" do
+RSpec.describe "restaurant-parent show" do
   before(:each) do
     @rest_1 = Restaurant.create!(
       name: "Geraldo's",
@@ -30,13 +30,6 @@ RSpec.describe "restaurant-parent index" do
       price: 5.99,
       restaurant_id: @rest_2.id,
       })
-  end
-
-  # User Story 10
-  it "shows link to a restaurant's pastas on restaurant's show page" do
-    visit "/restaurants/#{@rest_1.id}"
-
-    expect(has_link?("Pasta Menu")).to eq(true)
   end
 
   # User Story 5
@@ -69,15 +62,5 @@ RSpec.describe "restaurant-parent index" do
     expect(page).to have_content(@pasta_3.is_vegan)
     expect(page).to have_content(@pasta_3.price)
     expect(page).to have_content(@pasta_3.restaurant_id)
-  end
-
-  # User Story 16
-  it 'has a link to sort pastas by name' do
-    visit "/restaurants/#{@rest_1.id}/pastas"
-    expect(has_link?("Sort By Pasta Name")).to eq(true)
-
-    click_link "Sort By Pasta Name"
-    expect(current_path).to eq("/restaurants/#{@rest_1.id}/pastas")
-    expect(@pasta_2.name).to appear_before(@pasta_1.name)
   end
 end

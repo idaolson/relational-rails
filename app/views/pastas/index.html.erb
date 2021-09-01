@@ -7,11 +7,13 @@
 <h1>All Pastas</h1>
 
 <% @pastas.each do |pasta| %>
-  <h3><a href="/pastas/<%= pasta.id %>"><%= pasta.name %></a></h3>
-  <p> Pasta ID: <%= pasta.id %></p>
-  <p> Restaurant ID: <%= pasta.restaurant_id %></p>
-  <p> Created at: <%= pasta.created_at %></p>
-  <p> Updated at: <%= pasta.updated_at %></p>
-  <p> Vegan: <%= pasta.is_vegan %></p>
-  <p> Price: <%= pasta.price %></p>
+  <h3><%= link_to pasta.name, "/pastas/#{pasta.id}" %></h3>
+  Pasta ID: <%= pasta.id %><br/>
+  Restaurant ID: <%= pasta.restaurant_id %><br/>
+  Created at: <%= pasta.created_at %><br/>
+  Updated at: <%= pasta.updated_at %><br/>
+  Vegan: <%= pasta.is_vegan %><br/>
+  Price: <%= pasta.price %><br/>
+  <%= link_to "Update #{pasta.name}", "/pastas/#{pasta.id}/edit" %><br/>
+  <%= link_to "Delete #{pasta.name}", "/pastas/#{pasta.id}", method: :delete %><br/>
 <%end%>

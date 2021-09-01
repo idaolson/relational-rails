@@ -9,15 +9,21 @@ Rails.application.routes.draw do
   get '/restaurants/:id', to: "restaurants#show"
   get '/restaurants/:id/edit', to: 'restaurants#edit'
   patch '/restaurants/:id', to: 'restaurants#update'
-
-  # pastas
-  get '/pastas', to: 'pastas#index'
-  get '/restaurants/:id/pastas/new', to: 'pastas#new'
-  post '/pastas', to: 'pastas#create'
-  get '/pastas/:id', to: "pastas#show"
+  delete '/restaurants/:id', to: 'restaurants#destroy'
 
   # restaurant pastas
   get '/restaurants/:id/pastas', to: 'restaurant_pastas#index'
+  get '/restaurants/:id/pastas/new', to: 'restaurant_pastas#new'
+  post '/restaurants/:restaurant_id/pastas', to: 'restaurant_pastas#create'
+  patch '/restaurants/:restaurant_id/pastas/:id', to: 'restaurant_pastas#edit'
+  get '/restaurants/:restaurant_id/pastas/:id/edit', to: 'restaurant_pastas#edit'
+
+  # pastas
+  get '/pastas', to: 'pastas#index'
+  get '/pastas/:id', to: 'pastas#show'
+  get '/pastas/:id/edit', to: 'pastas#edit'
+  patch '/pastas/:id', to: 'pastas#update'
+  delete '/pastas/:id', to: "pastas#destroy"
 
   # boba shops
   get '/boba_shops', to: 'boba_shops#index'

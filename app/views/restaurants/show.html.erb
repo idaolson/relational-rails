@@ -14,5 +14,6 @@
 <p> Pasta count: <%= @restaurant.pasta_count %></p>
 
 <%= link_to "Update Restaurant", "/restaurants/#{@restaurant.id}/edit" %><br/>
+<%= link_to "Delete Restaurant", "/restaurants/#{@restaurant.id}", method: :delete %><br/>
 <%= link_to "Add Pasta to Menu", "/restaurants/#{@restaurant.id}/pastas/new" %><br/>
 <%= link_to "Pasta Menu", "/restaurants/#{@restaurant.id}/pastas" %>

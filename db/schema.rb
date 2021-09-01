@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_30_191158) do
+ActiveRecord::Schema.define(version: 2021_08_31_221458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_191158) do
     t.boolean "delivery"
     t.integer "michelin_stars"
   end
+
 
   add_foreign_key "drinks", "boba_shops"
 end

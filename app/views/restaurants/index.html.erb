@@ -5,9 +5,11 @@
 <%= link_to "Pastas", "/pastas"%>
 
 <h1>Restaurants</h1>
+<% @restaurants.each do |restaurant| %>
+  <h3><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %></h3>
+  - Created at: <%= restaurant.created_at %><br/>
+  <%= link_to "Update #{restaurant.name}", "/restaurants/#{restaurant.id}/edit" %><br/>
+  <%= link_to "Delete #{restaurant.name}", "/restaurants/#{restaurant.id}", method: :delete %><br/>
+<% end %>
 
-<ul><% @restaurants.each do |restaurant| %>
-  <li><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %> - Created at: <%= restaurant.created_at %></li>
-<% end %></ul>
-
-<%= link_to "New Restaurant", "/restaurants/new"%>
+<br/><%= link_to "New Restaurant", "/restaurants/new"%>
