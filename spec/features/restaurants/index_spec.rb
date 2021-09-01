@@ -107,6 +107,31 @@ RSpec.describe 'restaurant-parent index' do
   end
 
 
+  # User Story 17
+  it "can update an existing restaurant's attributes" do
+    visit "/restaurants"
+    expect(has_link?("Update #{@rest_1.name}")).to eq(true)
 
+    click_on "Update #{@rest_1.name}"
+    expect(current_path).to eq("/restaurants/#{@rest_1.id}/edit")
 
+    fill_in :name, with: 'Olive Garden'
+    check :delivery
+    fill_in :michelin_stars, with: '0'
+
+    click_button 'Update Restaurant'
+    expect(current_path).to eq("/restaurants/#{@rest_1.id}")
+    expect(page).to have_content('Olive Garden')
+    expect(page).to have_no_content("Geraldo's")
+  end
+
+  # User Story 23
+  it 'has link to delete a restaurant' do
+    visit "/restaurants"
+    expect(has_link?("Delete #{@rest_1.name}")).to eq(true)
+
+    click_on "Delete #{@rest_1.name}"
+    expect(current_path).to eq("/restaurants")
+    expect(page).to have_no_content("Geraldo's")
+  end
 end
