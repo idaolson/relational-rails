@@ -50,13 +50,13 @@ describe BobaShop do
     end
 
     it 'can sort drinks alphabetically' do
-      drinks = Drink.all
       expected = [
         @drink_2,
         @drink_1
       ]
-      sort = true
-      expect(@store_1.sort_drinks(sort)).to eq(expected)
+      
+      expect(@store_1.sort_drinks(true)).to eq(expected)
+      expect(@store_1.sort_drinks(false)).to eq([@drink_1, @drink_2])
     end
   end
 end

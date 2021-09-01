@@ -9,8 +9,8 @@
 <%= link_to "Sort", "/boba_shops/#{@boba_shop.id}/drinks?sort=true" %><br><br>
 <%= form_with url: "/boba_shops/#{@boba_shop.id}/drinks", method: :get, local: true do |form| %>
   <%= form.label :price %>
-  <%= form.number_field :price, in: 5.99..15.99 %>
-  <%= form.submit "Only return records with more than #{@price} of price" %>
+  <%= form.number_field :price, in: 5.99..15.99, step: 0.01 %>
+  <%= form.submit "Only return records that cost more than this price" %>
 <% end %>
 
 <% @drinks.each do |drink| %>
@@ -22,7 +22,7 @@
     <li>Store ID: <%= drink.boba_shop_id %></li>
     <li>Created at: <%= drink.created_at %></li>
     <li>Updated at: <%= drink.updated_at %></li>
-    <li>In stock?: <%= drink.in_stock %></li>
+    <li>In stock: <%= drink.in_stock %></li>
     <li>Price: <%= drink.price %></li>
   </ul>
 <% end %>
