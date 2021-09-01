@@ -75,6 +75,7 @@ RSpec.describe "restaurant-parent index" do
   it 'has a link to sort pastas by name' do
     visit "/restaurants/#{@rest_1.id}/pastas"
     expect(has_link?("Sort By Pasta Name")).to eq(true)
+    expect(@pasta_1.name).to appear_before(@pasta_2.name)
 
     click_link "Sort By Pasta Name"
     expect(current_path).to eq("/restaurants/#{@rest_1.id}/pastas")
