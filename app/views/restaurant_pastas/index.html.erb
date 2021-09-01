@@ -5,6 +5,7 @@
 <%= link_to "Pastas", "/pastas"%>
 
 <h1><%= link_to "#{@restaurant.name} Pasta Menu", "/restaurants/#{@restaurant.id}" %></h1>
+<%= link_to "Sort By Pasta Name", "/restaurants/#{@restaurant.id}/pastas?sort=true" %><br>
 
 <% @restaurant_pastas.each do |pasta| %>
   <h3><%= pasta.name %></h3>
@@ -16,4 +17,5 @@
   Price: <%= pasta.price %><br/>
 <%end%>
 <br/>
-<%= link_to 'Add a pasta', "/restaurants/#{@restaurant.id}/pastas/new" %>
+
+<%= link_to 'Create Pasta', "/restaurants/#{@restaurant.id}/pastas/new" %>
