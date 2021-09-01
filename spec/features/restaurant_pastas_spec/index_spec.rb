@@ -38,4 +38,46 @@ RSpec.describe "restaurant-parent index" do
 
     expect(has_link?("Pasta Menu")).to eq(true)
   end
+
+  # User Story 5
+  it "displays a restaurant's pasta menu with attributes" do
+
+    visit "/restaurants/#{@rest_1.id}/pastas"
+        # save_and_open_page
+    expect(page).to have_content(@pasta_1.id)
+    expect(page).to have_content(@pasta_1.created_at)
+    expect(page).to have_content(@pasta_1.updated_at)
+    expect(page).to have_content(@pasta_1.name)
+    expect(page).to have_content(@pasta_1.is_vegan)
+    expect(page).to have_content(@pasta_1.price)
+    expect(page).to have_content(@pasta_1.restaurant_id)
+
+    expect(page).to have_content(@pasta_2.name)
+    expect(page).to have_content(@pasta_2.id)
+    expect(page).to have_content(@pasta_2.created_at)
+    expect(page).to have_content(@pasta_2.updated_at)
+    expect(page).to have_content(@pasta_2.is_vegan)
+    expect(page).to have_content(@pasta_2.price)
+    expect(page).to have_content(@pasta_2.restaurant_id)
+
+    visit "/restaurants/#{@rest_2.id}/pastas"
+
+    expect(page).to have_content(@pasta_3.name)
+    expect(page).to have_content(@pasta_3.id)
+    expect(page).to have_content(@pasta_3.created_at)
+    expect(page).to have_content(@pasta_3.updated_at)
+    expect(page).to have_content(@pasta_3.is_vegan)
+    expect(page).to have_content(@pasta_3.price)
+    expect(page).to have_content(@pasta_3.restaurant_id)
+  end
+
+  # User Story 16
+  it 'has a link to sort pastas by name' do
+    visit "/restaurants/#{@rest_1.id}/pastas"
+    expect(has_link?("Sort By Pasta Name")).to eq(true)
+
+    click_link "Sort By Pasta Name"
+    expect(current_path).to eq("/restaurants/#{@rest_1.id}/pastas")
+    expect(@pasta_2.name).to appear_before(@pasta_1.name)
+  end
 end
