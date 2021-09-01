@@ -1,0 +1,17 @@
+<%= link_to "Home", "/"%>
+<%= link_to "Boba Shops", "/boba_shops"%>
+<%= link_to "Drinks", "/drinks"%>
+<%= link_to "Restaurants", "/restaurants"%>
+<%= link_to "Pastas", "/pastas"%>
+
+
+<h1>Add New Pasta</h1>
+<%= form_with url: "/restaurants/#{@restaurant.id}/pastas", method: :post, local: true do |form| %>
+  <%= form.label :name, "Pasta name:" %>
+  <%= form.text_field :name%><br/><br/>
+  <%= form.label :is_vegan, "Check if vegan:" %>
+  <%= form.check_box :is_vegan %><br/><br/>
+  <%= form.label :price, "Price:" %>
+  <%= form.number_field :price, min: 0, step: 0.01, in: 0.00..99.99 %><br/><br/>
+  <%= form.submit "Create Pasta" %>
+<% end %>
