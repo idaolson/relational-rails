@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 2021_08_31_221458) do
     t.integer "michelin_stars"
   end
 
-
   add_foreign_key "drinks", "boba_shops"
   add_foreign_key "pasta", "restaurants"
 end
