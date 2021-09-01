@@ -35,10 +35,16 @@ RSpec.describe Pasta do
         price: 5.99,
         restaurant_id: @rest_2.id,
       )
+      @pastas = Pasta.all
     end
 
     it "creats a new pasta" do
       expect(@pasta_1).to be_a(Pasta)
+    end
+
+    it 'only returns pastas whose price is greater that input' do
+      expect(@pastas.filter_by_price("")).to eq([@pasta_1, @pasta_2, @pasta_3])
+      expect(@pastas.filter_by_price(6.01)).to eq([@pasta_1, @pasta_2])
     end
   end
 end

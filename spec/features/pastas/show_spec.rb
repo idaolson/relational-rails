@@ -34,7 +34,6 @@ RSpec.describe "pasta-child show" do
 
   # User Story 4
   it "displays pasta attributes on id page" do
-
     visit "/pastas/#{@pasta_1.id}"
         # save_and_open_page
     expect(page).to have_content(@pasta_1.id)

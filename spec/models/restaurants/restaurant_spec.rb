@@ -49,5 +49,10 @@ RSpec.describe Restaurant do
       expect(@rest_1.pasta_count).to eq(2)
       expect(@rest_2.pasta_count).to eq(1)
     end
+
+    it "sorts a restaurant's pastas by name alphabetically" do
+      expect(@rest_1.sort_pastas(false)).to eq([@pasta_1, @pasta_2])
+      expect(@rest_1.sort_pastas(true)).to eq([@pasta_2, @pasta_1])
+    end
   end
 end

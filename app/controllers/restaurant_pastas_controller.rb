@@ -1,7 +1,7 @@
 class RestaurantPastasController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:id])
-    @restaurant_pastas = @restaurant.sort_pastas(params[:sort])
+    @restaurant_pastas = @restaurant.sort_pastas(params[:sort]).filter_by_price(params[:price])
   end
 
   def new
