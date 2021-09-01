@@ -55,6 +55,7 @@ Pasta.destroy_all
   price: 11.99
 )
 
+
 # restaurants
 @rest_1 = Restaurant.create!(
   name: "Geraldo's",
