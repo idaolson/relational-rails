@@ -42,6 +42,10 @@ RSpec.describe Pasta do
       expect(@pasta_1).to be_a(Pasta)
     end
 
+    it "only returns vegan pasta" do
+      expect(@pastas.is_vegan).to eq([@pasta_2])
+    end
+
     it 'only returns pastas whose price is greater that input' do
       expect(@pastas.filter_by_price("")).to eq([@pasta_1, @pasta_2, @pasta_3])
       expect(@pastas.filter_by_price(6.01)).to eq([@pasta_1, @pasta_2])
