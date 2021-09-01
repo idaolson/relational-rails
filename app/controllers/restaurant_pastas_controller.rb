@@ -1,8 +1,7 @@
 class RestaurantPastasController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:id])
-    @restaurant_pastas = @restaurant.pastas
-    @pastas = @restaurant.sort_pastas(params[:sort])
+    @restaurant_pastas = @restaurant.sort_pastas(params[:sort])
   end
 
   def new
