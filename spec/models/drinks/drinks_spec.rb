@@ -48,6 +48,7 @@ describe Drink do
 
     it 'only return drinks that are above a certain price' do
       drinks = Drink.all
+      expect(drinks.filter_by_price("")).to eq([@drink_1, @drink_2, @drink_3, @drink_4])
       expect(drinks.filter_by_price(9.99)).to eq([@drink_3, @drink_4])
     end
   end

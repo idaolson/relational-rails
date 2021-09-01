@@ -6,7 +6,7 @@ class Drink < ApplicationRecord
   end
 
   def self.filter_by_price(price)
-    price = 0 if price == ""
+    price = 0 if price == "" || price == nil
     where("price > #{price}")
   end
 end
